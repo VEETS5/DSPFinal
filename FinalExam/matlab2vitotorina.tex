@@ -1,0 +1,198 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{empheq}
+\usepackage{tikz}
+\usepackage{matlab-prettifier}
+\usepackage{minted}
+\usepackage{xcolor} 
+\definecolor{LightGray}{gray}{0.9}
+\usepackage{hyperref}
+\usetikzlibrary{shapes.geometric}
+\title{Final Exam}
+\author{Vito Torina}
+\date{\today}
+\lstset{breaklines=true}
+\begin{document}
+\maketitle
+{\centering Cover page below\par } 
+{\centering $\downarrow$ \par }
+\begin{titlepage}
+    \noindent{\includegraphics[scale=0.73]{cover.png}} 
+\end{titlepage}
+\newpage
+\section*{Problem \#1 (25 Points)}
+\hrulefill
+\subsection*{Given}
+Design a filter that completely blocks the frequency of $\omega_0 = \frac{\pi}{3}$, by placing its poles and zeros in the z-plane. The designed filter should yield real output, given the input is real. Clearly and show all your work, answer the following:
+\begin{enumerate}
+    \item Draw poles and zeros of the filter in the Z-plane, clearly showing magnitude and phase.
+    \item Write the expression for the transfer function, $H(z)$ associated with the filter you designed per your pole-zero plot. You can use $K=1$ for a scaling constant.
+    \item Write an expression for $H(\omega)$, and \textit{give its magnitude and phase}.
+    \item Plot the magnitude of $H(\omega)$ (not the Bode plot), that is $|H(\omega)|$ versus frequency $\omega$. You can use any software.
+    \item Discuss this filter stability in sight of your choice of its poles and zeros.
+    \item Determine the output $y(n)$, if the input signal to the filter is given by
+    \[x(n) = 6 + 3 \cos\left(\frac{\pi}{3}n\right) + \sin\left(\frac{\pi}{6}n + \frac{\pi}{2}\right) + 2 \cos\left(\frac{\pi}{2}n\right) \quad - \infty < n < \infty\]
+    \item What type of a filter can this be used for, and why?
+    \item Based on the filter’s type, explain the relation between $y(n)$ and $x(n)$ in part 6.
+\end{enumerate}
+\newpage
+\subsection*{Solution}
+\subsubsection*{1) Plot Poles and Zeros on Z-plane}
+\inputminted[frame=lines,framesep=2mm,baselinestretch=1.2,bgcolor=LightGray,breaklines,fontsize=\tiny,linenos]{python}{p1p1.py}
+\includegraphics*[scale=0.5]{p1p1.png}
+\newpage
+\subsubsection*{2) Find H(z)}
+Zeros are $\omega_0 = \frac{\pi}{3}$
+Poles are $0.9 \times e^{j \frac{\pi}{3}}$
+\\ so... \\
+$H(z) = K * (z - z1) * (z - z2) / ((z - p1) * (z - p2))$
+\\ sub in... \\
+$$H(z) = K \cdot \frac{(z - e^{j\pi/3})(z - e^{-j\pi/3})}{(z - 0.9e^{j\pi/3})(z - 0.9e^{-j\pi/3})}$$
+\subsubsection*{3) Find $H(\omega)$ }
+\begin{center}
+sub $z = e^{j\omega}$
+
+$$H(z) = K \cdot \frac{(e^{j\omega} - e^{j\pi/3})(e^{j\omega} - e^{-j\pi/3})}{(e^{j\omega} - 0.9e^{j\pi/3})(e^{j\omega} - 0.9e^{-j\pi/3})}$$
+
+simplify:
+
+$$H(e^{j\omega}) = K \cdot \frac{e^{-j2\omega/3} - 2e^{j\omega/3}\cos(\pi/3) + 1}{e^{-j2\omega/3} - 1.8e^{j\omega/3}\cos(\pi/3) + 0.81}$$
+
+magnitude response is given by:
+
+$$|H(e^{j\omega})| = |K| \cdot \frac{\sqrt{4\cos^2(\omega/3) + 1}}{\sqrt{3.24\cos^2(\omega/3) + 0.81}}$$
+
+phase response is given by:
+
+$$\angle H(e^{j\omega}) = \angle K - 2\omega/3 + \tan^{-1}\left(\frac{\sin(\omega/3)}{\cos(\omega/3) - 1/2}\right) - \tan^{-1}\left(\frac{1.8\sin(\omega/3)}{1.8\cos(\omega/3) - 0.81}\right)$$
+
+magnitude response is based on the gain K:
+
+$$|H(e^{j\pi/3})| = |K| \cdot \frac{1}{\sqrt{3.24}} = 0$$
+
+the phase response is:
+
+$$\angle H(e^{j\pi/3}) = \angle K - \pi + \tan^{-1}(2\sqrt{3}) - \tan^{-1}(0.9\sqrt{3})$$
+\end{center}
+\newpage
+\subsubsection*{4) Plot $|H(\omega)|$ the magnitude and phase}
+\inputminted[frame=lines,framesep=2mm,baselinestretch=1.2,bgcolor=LightGray,breaklines,fontsize=\tiny,linenos]{python}{p1p3.py}
+\includegraphics*[scale=0.5]{p1p3.png}
+\newpage
+\subsubsection*{5) Filter Stability}
+Given that I used a similar filter to one found in the notes,the poles give the filter a stable respose since they lay inside the unit circle. The radius of 0.9 for the poles can be changed to either a smaller radius for a wider notched magnitude response or they can be widened to 0.99 for a sharper notched magnitude response.\\
+\subsubsection*{0.99 Poles}
+\includegraphics*[scale=0.3]{p1p5p1.png}
+\subsubsection*{0.80 Poles}
+\includegraphics*[scale=0.3]{p1p5p2.png}
+\newpage
+\subsubsection*{6) Given $x(n) = 6 + 3 cos(\frac{\pi}{3}n) + sin(\frac{\pi}{6}n + \frac{\pi}{2}) + 2 cos(\frac{\pi}{2}n)$  input what is the output $y(n)$ ? }
+We know that the output function can be split up into the respective terms, then multiplied by the magnitude of the frequency component of each term.\\
+Such as...\\
+$y1 = 6 \times |H(0)|$ \\
+$y2 = 3 \times |H(\frac{\pi}{3})|$ \\
+$y3 = 1 \times |H(\frac{\pi}{6})|$ \\ 
+$y4 = 2 \times |H(\frac{\pi}{2})|$ \\
+Since our filter is blocking all frequency at $\pi/3$ the second term of x(n) will be zero since the notch filter will completely block it. I reworked the code earlier to get our output y(n). We essentially just plug in our frequency component to the magnitude and then mulptiply it out.
+\inputminted[frame=lines,framesep=2mm,baselinestretch=1.2,bgcolor=LightGray,breaklines,fontsize=\tiny,linenos]{python}{p1p6.py}
+Output:\\
+\includegraphics*[scale=1]{p1p6.png} \\
+$y1 = 6 \times 1.0989 = 6.5934$ \\
+$y2 = 3 \times 0 = 0$ \\
+$y3 = 1 \times 1.0858 = 1.0858$ \\ 
+$y4 = 2 \times 1.0871 = 2.1742$ \\
+$y(n) = 6.5934 + 1.0858 sin(\frac{\pi}{6} n + \frac{\pi}{2}) + 2.1742 cos(\frac{\pi}{2} n)$
+
+\subsubsection*{7) What kind of filter?}
+This filter is a notch filter which is a type of band stop filter. This is used for blocking signals in a specific range, while letting all the rest of the signal to pass through. You would use this when you want a specific portion of the signal to be blocked and the rest of the signal to be unaltered. In our case we blocked the frequency of $\omega_0 = \pi/3$
+\subsubsection*{8) Relation between y(n) and x(n) from 6?}
+So basically each component in x(n) can be treated as a separate input signal to get y1 y2 y3 y4, and the final output y(n) can be obtained by summing the responses of the system to each input component. y(n) is essentially just showing the way the signal would be when passing through the filter I designed. 
+
+
+\newpage
+\section*{Problem \#2 (25 Points)}
+\hrulefill
+\subsection*{Given}
+Use the specifications of the following ideal filter to design a BP FIR Filter, answer the following questions:
+\[
+H_{\text{Ideal}}(F) = 
+\begin{cases} 
+1 & 10 \leq |F| \leq 15 \\
+0 & \text{otherwise}
+\end{cases}
+\]
+
+With sampling frequency \( F_s = 50kHz \) and all given \( F \) values above are in kHz.
+
+And using,
+\[
+W_{\text{hamming}}(n) = 
+\begin{cases} 
+0.54 - 0.46 \cos\left(\frac{2\pi n}{M}\right) & 0 \leq n \leq M \\
+0 & \text{otherwise}
+\end{cases}
+\]
+
+\begin{enumerate}
+    \item Sketch the frequency response for the desired filter using your hand drawing.
+    \item Using the above window, determine the impulse response of FIR filter which approximates this frequency response.
+    \item Compute the first 4 coefficients of the impulse response \( h(n) \) coefficients.
+    \item Use MATLAB to plot both the desired \( h(n) \), and the frequency response magnitude and phase of the filter you designed.
+    \item Comment on the expected performance of the filter you designed, and verify that it holds.
+    \item Comment on the nature of the filters phase.
+    \item Discuss how this window would be a better choice over the rectangular window.
+\end{enumerate}
+\newpage
+\subsection*{Solution}
+\subsubsection*{1) Hand Sketch The Frequency Response}
+\includegraphics*[scale=0.3]{p2p1.jpg}
+\subsubsection*{2) Determine the Impulse Rsponse}
+
+
+
+
+\newpage
+\section*{Problem \#3 (30 Points)}
+\hrulefill
+\subsection*{Given}
+Consider the following filter \( H(s) \)
+
+\[
+H(s) = \frac{1}{s}
+\]
+
+Using \( F_s = 10Hz \), design an IIR filter using these methods.
+\begin{itemize}
+    \item Method 1: Impulse Invariant
+    \item Method 2: Bilinear Transformation
+\end{itemize}
+
+In your design, address these questions
+\begin{enumerate}
+    \item Give the model for \( H(z) \) and \( H(\omega) \) for each method.
+    \item Sketch the magnitude frequency response of \( H(s) \), \( H_i(\omega) \) of \textit{each of the methods listed above}. You can use any tools.
+    \item Discuss the performance of both designs in how they approximate the analog filter for certain frequencies, that is discuss filter performance for low range frequencies, and high frequencies in comparison to the analog filter.
+    \item What type of a filter is this? Explain your answer.
+    \item Does your answer in part 4 align with the advantages and disadvantages of these two design methods? Keep your answer short and precise statements.
+    \item Discuss warping effect on \( H_z(\omega) \) if any.
+\end{enumerate}
+\newpage
+\subsection*{Solution}
+
+
+
+
+
+
+
+\newpage
+Thank you
+\begin{tikzpicture}
+    \draw [fill=yellow] (0,0) circle [radius=2cm];
+    \draw [fill=black] (-0.8,0.8) circle [radius=0.25cm];
+    \draw [fill=black] (0.8,0.8) circle [radius=0.25cm];
+    \draw (-1,0) arc [radius=1cm, start angle=220, end angle=320];
+\end{tikzpicture}
+\end{document}
