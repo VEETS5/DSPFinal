@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{Fs}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{l+m+mi}{50}\PYG{p}{;}\PYG{+w}{  }
+\PYG{n}{M}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{l+m+mi}{50}\PYG{p}{;}\PYG{+w}{  }
+
+\PYG{n}{syms}\PYG{+w}{ }\PYG{l+s}{n}\PYG{p}{;}
+
+\PYG{n}{h\PYGZus{}ideal}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nb}{sin}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n+nb}{pi}\PYG{o}{*}\PYG{l+m+mi}{15}\PYG{o}{*}\PYG{n}{n}\PYG{o}{/}\PYG{n}{Fs}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n+nb}{sin}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n+nb}{pi}\PYG{o}{*}\PYG{l+m+mi}{10}\PYG{o}{*}\PYG{n}{n}\PYG{o}{/}\PYG{n}{Fs}\PYG{p}{))}\PYG{+w}{ }\PYG{o}{/}\PYG{+w}{ }\PYG{p}{(}\PYG{n+nb}{pi}\PYG{o}{*}\PYG{n}{n}\PYG{p}{);}
+\PYG{n}{h\PYGZus{}ideal}\PYG{p}{(}\PYG{n}{n}\PYG{o}{==}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{l+m+mi}{15}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{10}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{/}\PYG{+w}{ }\PYG{n}{Fs}\PYG{p}{;}
+
+\PYG{n}{w}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{l+m+mf}{0.54}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mf}{0.46}\PYG{o}{*}\PYG{n+nb}{cos}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n+nb}{pi}\PYG{o}{*}\PYG{n}{n}\PYG{o}{/}\PYG{n}{M}\PYG{p}{);}
+
+\PYG{n}{h}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n}{h\PYGZus{}ideal}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{w}\PYG{p}{;}
+
+\PYG{n}{h\PYGZus{}eq}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n+nb}{simplify}\PYG{p}{(}\PYG{n}{h}\PYG{p}{);}
+
+\PYG{n+nb}{disp}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}Equation for h(n):\PYGZsq{}}\PYG{p}{);}
+\PYG{n}{pretty}\PYG{p}{(}\PYG{n}{h\PYGZus{}eq}\PYG{p}{);}
+\end{Verbatim}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.12.21)  20 APR 2024 18:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.12.21)  21 APR 2024 13:52
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -909,51 +909,65 @@ Underfull \hbox (badness 10000) in paragraph at lines 47--52
  []
 
 
-Overfull \hbox (12.67702pt too wide) detected at line 69
-[]\OML/cmm/m/it/12 H\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 e[]\OT1/cmr/m/n/12 ) = []
-\OML/cmm/m/it/12 K \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 2\OML/cmm/m/it/12 !=\OT
-1/cmr/m/n/12 3 + [][] [] \OMS/cmsy/m/n/12 ^^@ [][] []
- []
-
-[3]
+(_minted-matlab2vitotorina/E219A37FF8C0989B8A671CF8ED2F162F9F10F56FD46DFCF2D9F8
+E3D2833530C9.pygtex) [3]
+(_minted-matlab2vitotorina/CDC4E5DABD711F0562BDF3542CA29EE85490112807AE3CE16EA8
+C285759B3FC2.pygtex) [4]
 (_minted-matlab2vitotorina/92DD7B3FEBB60933DEE0D8F66FCC611FDAE2AC42F5BA5B84706C
 BA247A202EA1.pygtex)
-<p1p3.png, id=59, 596.2275pt x 450.18187pt>
+<p1p3.png, id=66, 596.2275pt x 450.18187pt>
 File: p1p3.png Graphic file (type png)
 <use p1p3.png>
 Package pdftex.def Info: p1p3.png  used on input line 82.
 (pdftex.def)             Requested size: 298.11302pt x 225.09038pt.
- [4 <./p1p3.png>]
+ [5 <./p1p3.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 85--86
 
  []
 
-<p1p5p1.png, id=68, 586.44093pt x 438.8897pt>
+<p1p5p1.png, id=76, 586.44093pt x 438.8897pt>
 File: p1p5p1.png Graphic file (type png)
 <use p1p5p1.png>
 Package pdftex.def Info: p1p5p1.png  used on input line 87.
 (pdftex.def)             Requested size: 175.93362pt x 131.66792pt.
-<p1p5p2.png, id=70, 584.93532pt x 437.38406pt>
+<p1p5p2.png, id=78, 584.93532pt x 437.38406pt>
 File: p1p5p2.png Graphic file (type png)
 <use p1p5p2.png>
 Package pdftex.def Info: p1p5p2.png  used on input line 89.
 (pdftex.def)             Requested size: 175.48195pt x 131.21622pt.
-[5 <./p1p5p1.png> <./p1p5p2.png>]
+[6 <./p1p5p1.png> <./p1p5p2.png>]
 (_minted-matlab2vitotorina/AADC77B01573859A8A9FDFAFB3BA979EDAD6AA24B00BA08995A1
 0FEDEDCF9D5B.pygtex)
-<p1p6.png, id=84, 254.45062pt x 53.44969pt>
+<p1p6.png, id=91, 254.45062pt x 53.44969pt>
 File: p1p6.png Graphic file (type png)
 <use p1p6.png>
 Package pdftex.def Info: p1p6.png  used on input line 101.
 (pdftex.def)             Requested size: 254.45pt x 53.44954pt.
- [6 <./p1p6.png>] [7] [8]
-<p2p1.jpg, id=113, 1107.13625pt x 967.615pt>
+ [7 <./p1p6.png>] [8] [9]
+<p2p1.jpg, id=120, 1107.13625pt x 967.615pt>
 File: p2p1.jpg Graphic file (type jpg)
 <use p2p1.jpg>
 Package pdftex.def Info: p2p1.jpg  used on input line 152.
-(pdftex.def)             Requested size: 332.14343pt x 290.28674pt.
- [9 <./p2p1.jpg>] [10] [11]
-[12] (matlab2vitotorina.aux)
+(pdftex.def)             Requested size: 276.78339pt x 241.90315pt.
+
+(_minted-matlab2vitotorina/4F88E6EEF31BE9B57497B246F7EBC0DC519CA7FE2BD1F439CE15
+20984C097BC4.pygtex) [10 <./p2p1.jpg>]
+(_minted-matlab2vitotorina/DD68DE05D61E0DE6171BF66D69E252691BBB978B90EB517FBB07
+5E77715EEA4B.pygtex)
+runsystem(pygmentize -l "matlab" -f latex -P commandprefix=PYG -F tokenmerge -P
+ stripnl="False" -o _minted-matlab2vitotorina/3041988A74630C8503765BE333FCE3601
+9F95A060DB4D2FE430B958F12184562.pygtex p2p3.m)...executed.
+
+
+(_minted-matlab2vitotorina/3041988A74630C8503765BE333FCE36019F95A060DB4D2FE430B
+958F12184562.pygtex)
+runsystem(pygmentize -l "text" -f latex -P commandprefix=PYG -F tokenmerge -P s
+tripnl="False" -o _minted-matlab2vitotorina/A290D6F2FC85D2FF58BA3936DCCDB7DB9BE
+26177FAC25014492A9E26638768CB.pygtex p2p3.txt)...executed.
+
+
+(_minted-matlab2vitotorina/A290D6F2FC85D2FF58BA3936DCCDB7DB9BE26177FAC25014492A
+9E26638768CB.pygtex) [11] [12] [13] [14] (matlab2vitotorina.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-12-11>
@@ -962,33 +976,34 @@ Package rerunfilecheck Info: File `matlab2vitotorina.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 25687 strings out of 474495
- 495225 string characters out of 5743934
- 1938460 words of memory out of 5000000
- 47498 multiletter control sequences out of 15000+600000
- 565441 words of font info for 62 fonts, out of 8000000 for 9000
+ 25746 strings out of 474495
+ 499996 string characters out of 5743934
+ 1942460 words of memory out of 5000000
+ 47532 multiletter control sequences out of 15000+600000
+ 565609 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,10n,93p,924b,698s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\torin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1200.pk><C:/Users/torin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmbx12.pfb><C:/Users/torin/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmex10.pfb><C:/Users/torin/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmmi12.pfb><C:/Users/torin/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/torin/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/torin/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/torin/AppD
-ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/to
-rin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/U
-sers/torin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pf
-b><C:/Users/torin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmsy10.pfb><C:/Users/torin/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmsy6.pfb><C:/Users/torin/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmsy8.pfb><C:/Users/torin/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmti12.pfb><C:/Users/torin/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on matlab2vitotorina.pdf (14 pages, 849029 bytes).
+ype1/public/amsfonts/cm/cmitt10.pfb><C:/Users/torin/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/torin/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/torin/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/torin/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/
+torin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C
+:/Users/torin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6
+.pfb><C:/Users/torin/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmr8.pfb><C:/Users/torin/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb><C:/Users/torin/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/cm/cmsy6.pfb><C:/Users/torin/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/torin/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/torin/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on matlab2vitotorina.pdf (16 pages, 864174 bytes).
 PDF statistics:
- 222 PDF objects out of 1000 (max. 8388607)
- 55 named destinations out of 1000 (max. 500000)
+ 240 PDF objects out of 1000 (max. 8388607)
+ 61 named destinations out of 1000 (max. 500000)
  84 words of extra memory for PDF output out of 10000 (max. 10000000)
 

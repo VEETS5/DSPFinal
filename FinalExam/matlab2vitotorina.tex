@@ -50,32 +50,32 @@ Poles are $0.9 \times e^{j \frac{\pi}{3}}$
 $H(z) = K * (z - z1) * (z - z2) / ((z - p1) * (z - p2))$
 \\ sub in... \\
 $$H(z) = K \cdot \frac{(z - e^{j\pi/3})(z - e^{-j\pi/3})}{(z - 0.9e^{j\pi/3})(z - 0.9e^{-j\pi/3})}$$
-\subsubsection*{3) Find $H(\omega)$ }
-\begin{center}
-sub $z = e^{j\omega}$
-
-$$H(z) = K \cdot \frac{(e^{j\omega} - e^{j\pi/3})(e^{j\omega} - e^{-j\pi/3})}{(e^{j\omega} - 0.9e^{j\pi/3})(e^{j\omega} - 0.9e^{-j\pi/3})}$$
-
 simplify:
-
-$$H(e^{j\omega}) = K \cdot \frac{e^{-j2\omega/3} - 2e^{j\omega/3}\cos(\pi/3) + 1}{e^{-j2\omega/3} - 1.8e^{j\omega/3}\cos(\pi/3) + 0.81}$$
-
-magnitude response is given by:
-
-$$|H(e^{j\omega})| = |K| \cdot \frac{\sqrt{4\cos^2(\omega/3) + 1}}{\sqrt{3.24\cos^2(\omega/3) + 0.81}}$$
-
-phase response is given by:
-
-$$\angle H(e^{j\omega}) = \angle K - 2\omega/3 + \tan^{-1}\left(\frac{\sin(\omega/3)}{\cos(\omega/3) - 1/2}\right) - \tan^{-1}\left(\frac{1.8\sin(\omega/3)}{1.8\cos(\omega/3) - 0.81}\right)$$
-
-magnitude response is based on the gain K:
-
-$$|H(e^{j\pi/3})| = |K| \cdot \frac{1}{\sqrt{3.24}} = 0$$
-
-the phase response is:
-
-$$\angle H(e^{j\pi/3}) = \angle K - \pi + \tan^{-1}(2\sqrt{3}) - \tan^{-1}(0.9\sqrt{3})$$
-\end{center}
+\[
+H(z) = \frac{z^2 - 1}{z^2 - z + \frac{1}{2}}
+\]
+\subsubsection*{3) Find $H(\omega)$ }
+I wrote a MATLAB script to find $H(\omega) and |H(\omega)| and \angle H(\omega)$
+\inputminted[frame=lines,framesep=2mm,baselinestretch=1.2,bgcolor=LightGray,breaklines,fontsize=\tiny,linenos]{matlab}{p1p3.m}
+\newpage
+Here is the output when running my code.
+\inputminted[frame=lines,framesep=2mm,baselinestretch=1.2,bgcolor=LightGray,breaklines,fontsize=\tiny,linenos]{text}{p1p3.txt}
+\subsubsection*{Frequency Response $H(\omega)$}
+\[
+H(\omega) = \frac{1 + e^{2j\omega} - e^{j\omega}}{\frac{81}{100} + e^{2j\omega} - \frac{9}{10}e^{j\omega}}
+\]
+\[
+H(\omega) = \frac{1 + \cos(2\omega) - \cos(\omega) + j \cdot (\sin(2\omega) - \sin(\omega))}{
+\frac{81}{100} + \cos(2\omega) - \frac{9}{10} \cdot \cos(\omega) + j \cdot (\sin(2\omega) - \frac{9}{10} \cdot \sin(\omega))}
+\]
+\subsubsection*{Magnitude of $H(\omega)$}
+\[
+|H(\omega)| =  \frac{|1 + e^{2j\omega} - e^{j\omega}|}{|\frac{81}{100} + e^{2j\omega} - \frac{9}{10}e^{j\omega}|}
+\]
+\subsubsection*{Phase of $H(\omega)$ (in radians)}
+\[
+\angle H(\omega) = \angle  (\frac{1 + e^{2j\omega} - e^{j\omega}}{\frac{81}{100} + e^{2j\omega} - \frac{9}{10}e^{j\omega}})
+\]
 \newpage
 \subsubsection*{4) Plot $|H(\omega)|$ the magnitude and phase}
 \inputminted[frame=lines,framesep=2mm,baselinestretch=1.2,bgcolor=LightGray,breaklines,fontsize=\tiny,linenos]{python}{p1p3.py}
@@ -104,11 +104,16 @@ $y2 = 3 \times 0 = 0$ \\
 $y3 = 1 \times 1.0858 = 1.0858$ \\ 
 $y4 = 2 \times 1.0871 = 2.1742$ \\
 $y(n) = 6.5934 + 1.0858 sin(\frac{\pi}{6} n + \frac{\pi}{2}) + 2.1742 cos(\frac{\pi}{2} n)$
-
 \subsubsection*{7) What kind of filter?}
 This filter is a notch filter which is a type of band stop filter. This is used for blocking signals in a specific range, while letting all the rest of the signal to pass through. You would use this when you want a specific portion of the signal to be blocked and the rest of the signal to be unaltered. In our case we blocked the frequency of $\omega_0 = \pi/3$
 \subsubsection*{8) Relation between y(n) and x(n) from 6?}
 So basically each component in x(n) can be treated as a separate input signal to get y1 y2 y3 y4, and the final output y(n) can be obtained by summing the responses of the system to each input component. y(n) is essentially just showing the way the signal would be when passing through the filter I designed. 
+
+
+
+
+
+
 
 
 \newpage
@@ -123,9 +128,7 @@ H_{\text{Ideal}}(F) =
 0 & \text{otherwise}
 \end{cases}
 \]
-
 With sampling frequency \( F_s = 50kHz \) and all given \( F \) values above are in kHz.
-
 And using,
 \[
 W_{\text{hamming}}(n) = 
@@ -134,7 +137,6 @@ W_{\text{hamming}}(n) =
 0 & \text{otherwise}
 \end{cases}
 \]
-
 \begin{enumerate}
     \item Sketch the frequency response for the desired filter using your hand drawing.
     \item Using the above window, determine the impulse response of FIR filter which approximates this frequency response.
@@ -147,8 +149,25 @@ W_{\text{hamming}}(n) =
 \newpage
 \subsection*{Solution}
 \subsubsection*{1) Hand Sketch The Frequency Response}
-\includegraphics*[scale=0.3]{p2p1.jpg}
-\subsubsection*{2) Determine the Impulse Rsponse}
+\includegraphics*[scale=0.25]{p2p1.jpg}
+\subsubsection*{2) Determine the Impulse Response}
+I used MATLAB code to calculate the impulse response:
+\inputminted[frame=lines,framesep=2mm,baselinestretch=1.2,bgcolor=LightGray,breaklines,fontsize=\tiny,linenos]{matlab}{p2p2.m}
+\newpage
+Here is the output when running the code
+\inputminted[frame=lines,framesep=2mm,baselinestretch=1.2,bgcolor=LightGray,breaklines,fontsize=\tiny,linenos]{text}{p2p2.txt}
+\[
+h(n) = \frac{(\frac{\cos\left(\frac{\pi n}{25}\right) 23}{50} - \frac{27}{50}) \left(\sin\left(\frac{2 \pi n}{5}\right) - \sin\left(\frac{3 \pi n}{5}\right)\right)}{n \pi}
+\]
+\subsubsection*{3) Compute the first 4 coefficients of the impulse response}
+I edited the previous code for finding the impulse response. Here is the MATLAB code:
+\inputminted[frame=lines,framesep=2mm,baselinestretch=1.2,bgcolor=LightGray,breaklines,fontsize=\tiny,linenos]{matlab}{p2p3.m}
+Here is the output when running the code
+\inputminted[frame=lines,framesep=2mm,baselinestretch=1.2,bgcolor=LightGray,breaklines,fontsize=\tiny,linenos]{text}{p2p3.txt}
+
+
+
+
 
 
 

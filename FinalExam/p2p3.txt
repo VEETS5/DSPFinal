@@ -1,0 +1,3 @@
+>> p2p3
+First 4 coefficients of h(n):
+    0.0160         0   -0.0177         0
